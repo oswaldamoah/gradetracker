@@ -1,0 +1,26 @@
+# DONE
+"""
+* Take scores input for one course
+* Calculate and display Raw Score and GPA
+"""
+
+#TO DO
+"""
+* Add remark system to if statement and call it in printed results 
+* Make code interactive:
+Welcome to LMS for UG
+    - Enter scores (Adds new scores or overwrites all old scores)
+        What course would you like to add scores for?
+        - All 7 courses listed (depending on what is chosen, it is noted) # U can use dictionary of ussd style {"1":"MATH223" and so on}
+          # Ask same previous input questions, but for that specific object course (assignment1, assignment2, examscore)
+          # Calculate and Display grades for all courses based on if statement
+          # Calculate and Display collective RAW Score and GPA 
+    # Draw a class diagram for the OOP
+    # Complete ReadMe.md
+
+
+You can select courses from a list of 7 courses (Each course will be an object)
+All course raw scores will be added together to get the gpa
+Function to edit course info
+
+"""
