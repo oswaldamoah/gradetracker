@@ -1,11 +1,45 @@
 # DONE
 """
-* Take scores input for one course
-* Calculate and display Raw Score and GPA
+* Did remark 
 """
 
 #TO DO
 """
+* Take scores input for one course
+* Calculate and display Raw Score and GPA
+
+"""
+
+
+Welcome to Dream High School Grade Tracker
+1. Enter Scores 
+# Courses are fixed (8 WASSCE Science Courses)
+# Each course has name, score, grade, remarks
+# Start with every course object created and every course score as 0s and added to a list
+    - List of Courses (select one)
+        - Asks for course details and updates object for it and adds object to a list
+
+2. Get Course Information
+- List of each course (8)
+- Last option for all courses
+
+3. Edit Scores
+List of each course
+    List of each detail you can edit (assignment1, assignment2, midsem, endofsem)
+
+4. Reset Course
+    - List of each course
+        - confirm
+            => sets course details to 0
+
+5. General Information
+Shows Average Grade
+Shows GPA
+
+
+
+OLD TO-DO
+
 * Add remark system to if statement and call it in printed results 
 * Make code interactive:
 Welcome to LMS for UG
@@ -22,5 +56,3 @@ Welcome to LMS for UG
 You can select courses from a list of 7 courses (Each course will be an object)
 All course raw scores will be added together to get the gpa
 Function to edit course info
-
-"""
