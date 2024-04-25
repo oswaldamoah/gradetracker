@@ -1,3 +1,9 @@
+Handle errors:
+    score input should be a number
+    score input should be positive 
+    score input should not be greater than the total score
+
+
 # DONE
 """
 * Did remark 
