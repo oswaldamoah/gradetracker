@@ -123,7 +123,7 @@ courses = [math, int_science, social, english, bio, chem, phys, ict]
 
 def start():
      print("OT High School Grade Tracker")
-     print(f"\t1. Enter Scores\n\t2. Get Course Information\n\t3. Edit Scores\n\t4. Reset Course\n\t5. General Information\n\tx. Exit")
+     print(f"\t1. Enter Scores\n\t2. Get Course Information\n\t3. General Information\n\tx. Exit")
 
      while True:
         choice1 = input("* Select an option: ")
@@ -140,24 +140,20 @@ def start():
                 goHome()
                 break
             case '3':
-                enter_scores()
-                goHome()
-                break
-            case '4':
-                reset_scores()
-                goHome()
-                break
-            case '5':
                 general_info()
                 goHome()
                 break
+            case 'x':
+                print("Exiting the program...")
+                break
+            case _:
+                print("Enter a number from '1-3' or 'x': ")
 
 
 def enter_scores():
-     ''' REMOVE COMMENT AND EDIT
      print("Which course score would you like to enter?")
-     print(f"\t1. Math\n\t2. Science\n\t3. Edit Scores\n\t4. Reset Course\n\t5. General Information\n\tx. Exit")
-     print(f"\t1. Enter Scores\n\t2. Get Course Information\n\t3. Edit Scores\n\t4. Reset Course\n\t5. General Information\n\tx. Exit")
+     print(f"\t1. Math\n\t2. Science\n\t3. Social Studies\n\t4. English Language\n\t5. Biology")
+     print(f"\t6. Chemistry\n\t7. Physics\n\t8. Information Technology\n\t9.Back\n\tx. Exit")
 
      while True:
         choice1 = input("* Select an option: ")
@@ -166,27 +162,161 @@ def enter_scores():
 
         match choice1:
             case '1':
-                enter_scores()
-                goHome()
+                item = math
                 break
             case '2':
-                course_info()
-                goHome()
+                item = int_science
                 break
             case '3':
-                enter_scores()
-                goHome()
+                item = social
                 break
             case '4':
-                reset_scores()
-                goHome()
+                item = english
                 break
             case '5':
-                general_info()
-                goHome()
+                item = bio
                 break
-                
-                '''
+            case '6':
+                item = chem
+                break
+            case '7':
+                item = phys
+                break
+            case '8':
+                item = ict
+                break
+            case '9':
+                start()
+                break
+            case 'x':
+                print("Exiting the program...")
+                break
+            case _:
+                print("Enter a number from '1-5' or 'x': ")
+    
+     while True:
+        try:
+            a1= float(input(f"{item.name}: Enter Assignment 1 Score /20 : "))/20
+            break
+        except (a1>20 or a1<0):
+            print("Assignment 1 Score should be positive and not more than 20")
+        except ValueError:
+            print("Enter a number")
+        
+     while True:
+        try:
+            a2= float(input(f"{item.name}: Enter Assignment 2 Score /20: "))/20
+            break
+        except (a1>20 or a1<0):
+            print("Assignment 2 Score should be positive and not more than 20")
+        except ValueError:
+            print("Enter a number")
+     
+     while True:
+        try:
+            ms= float(input(f"{item.name}: Enter Mid-Term Exam Score /50: "))/50
+            break
+        except (a1>50 or a1<0):
+            print("Mid-Term Exam Score should be positive and not more than 20")
+        except ValueError:
+            print("Enter a number")
+
+     while True:
+        try:
+            eos= float(input(f"{item.name}: Enter End-Of-Term Exam Score /100: "))/100
+            break
+        except (a1>100 or a1<0):
+            print("End-Of-Term Exam Score should be positive and not more than 100")
+        except ValueError:
+            print("Enter a number")
+    
+     print(f"Scores for {item.name} have been recorded")
+        
+     
+     
+     f_score = (a1*12.5)+(a2*12.5)+(ms*25)+(eos*50)
+     item.final_score = f_score
+     item.grade = calculate_grade(f_score)
+     item.remark = calculate_remark(f_score)
+
+
+def course_info():
+     print("Which course details do you want to see?: ")
+     print(f"\t1. Math\n\t2. Science\n\t3. Social Studies\n\t4. English Language\n\t5. Biology")
+     print(f"\t6. Chemistry\n\t7. Physics\n\t8. Information Technology\n\t9.Back\n\tx. Exit")
+
+     while True:
+        choice1 = input("* Select an option: ")
+        print("")
+
+        match choice1:
+            case '1':
+                item = math
+                break
+            case '2':
+                item = int_science
+                break
+            case '3':
+                item = social
+                break
+            case '4':
+                item = english
+                break
+            case '5':
+                item = bio
+                break
+            case '6':
+                item = chem
+                break
+            case '7':
+                item = phys
+                break
+            case '8':
+                item = ict
+                break
+            case '9':
+                start()
+                break
+            case 'x':
+                print("Exiting the program...")
+                break
+            case _:
+                print("Enter a number from '1-5' or 'x': ")
+     
+     print("---Course Details---")
+     print(f"Name: {item.name}")
+     print(f"Raw Score: {item.final_score}")
+     print(f"Grade: {item.grade}")
+     print(f"Remark: {item.remark}")
+
+
+def general_info():
+    print("GENERAL INFORMATION")
+    print("---------------------")
+    print("COURSE DETAILS")
+    print("---------------------")
+    cumulative_score = 0
+    for course in courses:
+        print("")
+        print(f"Name: {course.name}")
+        print(f"Grade: {course.grade}")
+        print(f"Remark: {course.remark}")
+        cumulative_score+=course.final_score
+
+    gpa = (cumulative_score/800)*4
+    print("")
+    print("----------------------")
+    print(f"GPA: {gpa:.2f}")
+    
+
+
+
+
+    
+
+    
+
+
 
 
 def goHome():
@@ -201,6 +331,10 @@ def goHome():
                 start()
                 break
             case 'x':
+                print("Exiting the program...")
                 break
             case _:
                 print("Enter either '0 - Home' or 'x - Exit'")
+
+
+start()
