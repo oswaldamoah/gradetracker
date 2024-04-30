@@ -1,22 +1,26 @@
-Handle errors:
-    score input should be a number
-    score input should be positive 
-    score input should not be greater than the total score
+
 
 
 # DONE
 """
 * Did remark 
+* Take scores input for one course
+* Calculate and display Raw Score and GPA
 """
 
 #TO DO
 """
-* Take scores input for one course
-* Calculate and display Raw Score and GPA
+Write new fxn setup
+Handle errors:
+    score input should be a number
+    score input should be positive 
+    score input should not be greater than the total score
 
 """
 
 
+
+OLD TO-DO
 Welcome to Dream High School Grade Tracker
 1. Enter Scores 
 # Courses are fixed (8 WASSCE Science Courses)
@@ -41,11 +45,6 @@ List of each course
 5. General Information
 Shows Average Grade
 Shows GPA
-
-
-
-OLD TO-DO
-
 * Add remark system to if statement and call it in printed results 
 * Make code interactive:
 Welcome to LMS for UG
