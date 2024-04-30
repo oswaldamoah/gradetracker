@@ -194,41 +194,23 @@ def enter_scores():
             case _:
                 print("Enter a number from '1-5' or 'x': ")
     
-     while True:
-        try:
-            a1= float(input(f"{item.name}: Enter Assignment 1 Score /20 : "))/20
-            break
-        except (a1>20 or a1<0):
-            print("Assignment 1 Score should be positive and not more than 20")
-        except ValueError:
-            print("Enter a number")
-        
-     while True:
-        try:
-            a2= float(input(f"{item.name}: Enter Assignment 2 Score /20: "))/20
-            break
-        except (a1>20 or a1<0):
-            print("Assignment 2 Score should be positive and not more than 20")
-        except ValueError:
-            print("Enter a number")
-     
-     while True:
-        try:
-            ms= float(input(f"{item.name}: Enter Mid-Term Exam Score /50: "))/50
-            break
-        except (a1>50 or a1<0):
-            print("Mid-Term Exam Score should be positive and not more than 20")
-        except ValueError:
-            print("Enter a number")
+     def validate_score(score_name, max_score):
+        while True:
+            try:
+                score = float(input(f"{item.name}: Enter {score_name} Score /{max_score}: "))
+                if score < 0 or score > max_score:
+                    raise ValueError(f"{score_name} Score must be between 0 and {max_score}")
+                return score
+            except ValueError as e:
+                print(e)
 
-     while True:
-        try:
-            eos= float(input(f"{item.name}: Enter End-Of-Term Exam Score /100: "))/100
-            break
-        except (a1>100 or a1<0):
-            print("End-Of-Term Exam Score should be positive and not more than 100")
-        except ValueError:
-            print("Enter a number")
+        # Get and validate all scores       
+     a1 = validate_score("Assignment 1", 20)/20
+     a2 = validate_score("Assignment 2", 20)/20
+     ms = validate_score("Mid-Term Exam", 50)/50
+     eos = validate_score("End-Of-Term Exam", 100)/100
+        
+   
     
      print(f"Scores for {item.name} have been recorded")
         
@@ -285,7 +267,7 @@ def course_info():
      
      print("---Course Details---")
      print(f"Name: {item.name}")
-     print(f"Raw Score: {item.final_score}")
+     print(f"Raw Score: {item.final_score}%")
      print(f"Grade: {item.grade}")
      print(f"Remark: {item.remark}")
 
@@ -308,12 +290,6 @@ def general_info():
     print("----------------------")
     print(f"GPA: {gpa:.2f}")
     
-
-
-
-
-    
-
     
 
 
