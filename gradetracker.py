@@ -267,7 +267,7 @@ def course_info():
      
      print("---Course Details---")
      print(f"Name: {item.name}")
-     print(f"Raw Score: {item.final_score}%")
+     print(f"Raw Score: {item.final_score:.2f}%") # 2 decimal places
      print(f"Grade: {item.grade}")
      print(f"Remark: {item.remark}")
 
@@ -288,7 +288,7 @@ def general_info():
     gpa = (cumulative_score/800)*4
     print("")
     print("----------------------")
-    print(f"GPA: {gpa:.2f}")
+    print(f"GPA: {gpa:.2f}") # 2 decimal places
     
     
 
